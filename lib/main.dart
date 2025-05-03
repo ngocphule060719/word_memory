@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:word_memory/app/di/dependencies.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _initializeApp();
   runApp(const MyApp());
+}
+
+Future<void> _initializeApp() async {
+  Dependencies.init();
 }
 
 class MyApp extends StatelessWidget {
@@ -31,6 +38,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void dispose() {
+    Dependencies.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
