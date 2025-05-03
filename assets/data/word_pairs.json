@@ -1,0 +1,52 @@
+{
+  "word_pairs": [
+    {
+      "english": "forest",
+      "french": "forét"
+    },
+    {
+      "english": "sibling",
+      "french": "frére et soeur"
+    },
+    {
+      "english": "cereal",
+      "french": "céréale"
+    },
+    {
+      "english": "desk",
+      "french": "bureau"
+    },
+    {
+      "english": "camel",
+      "french": "chameau"
+    },
+    {
+      "english": "butter",
+      "french": "beurre"
+    },
+    {
+      "english": "bicycle",
+      "french": "vélo"
+    },
+    {
+      "english": "railroad",
+      "french": "chemin de fer"
+    },
+    {
+      "english": "folder",
+      "french": "dossier"
+    },
+    {
+      "english": "weekly",
+      "french": "hebdomadaire"
+    },
+    {
+      "english": "hungry",
+      "french": "faim"
+    },
+    {
+      "english": "limestone",
+      "french": "calcaire"
+    }
+  ]
+} 
