@@ -4,6 +4,7 @@ import 'package:word_memory/data/datasources/local/local_word_pair_data_source.d
 import 'package:word_memory/data/datasources/word_pair_data_source.dart';
 import 'package:word_memory/data/repositories/word_repository_impl.dart';
 import 'package:word_memory/domain/repositories/word_repository.dart';
+import 'package:word_memory/domain/usecases/get_word_pairs_usecase.dart';
 
 class Dependencies {
   const Dependencies._();
@@ -25,6 +26,13 @@ class Dependencies {
     Get.lazyPut<WordRepository>(
       () => WordRepositoryImpl(
         dataSource: Get.find<WordPairDataSource>(),
+      ),
+      fenix: true,
+    );
+
+    Get.lazyPut<GetWordPairsUseCase>(
+      () => GetWordPairsUseCase(
+        repository: Get.find<WordRepository>(),
       ),
       fenix: true,
     );
