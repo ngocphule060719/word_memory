@@ -21,8 +21,18 @@ class WordPair extends Equatable {
     String? frenchWord,
   }) {
     return WordPair(
-      englishWord: englishWord ?? this.englishWord,
-      frenchWord: frenchWord ?? this.frenchWord,
+      englishWord: englishWord != null && englishWord.isNotEmpty
+          ? englishWord
+          : this.englishWord,
+      frenchWord: frenchWord != null && frenchWord.isNotEmpty
+          ? frenchWord
+          : this.frenchWord,
     );
   }
+
+  static WordPair empty() {
+    return const WordPair(englishWord: '', frenchWord: '');
+  }
+
+  bool get isValid => englishWord.isNotEmpty && frenchWord.isNotEmpty;
 }

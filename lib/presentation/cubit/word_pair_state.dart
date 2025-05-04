@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:word_memory/domain/entities/word_pair.dart';
+import 'package:word_memory/presentation/models/game_ui_state.dart';
 
 sealed class WordPairState extends Equatable {
   const WordPairState();
@@ -13,18 +14,31 @@ final class WordPairLoadingState extends WordPairState {
 }
 
 final class WordPairLoadedState extends WordPairState {
-  final List<WordPair> wordPairs;
+  const WordPairLoadedState({
+    required this.wordPairs,
+    required this.gameState,
+  });
 
-  const WordPairLoadedState({required this.wordPairs});
+  final List<WordPair> wordPairs;
+  final GameUiState gameState;
 
   @override
-  List<Object?> get props => [wordPairs];
+  List<Object?> get props => [wordPairs, gameState];
+
+  WordPairLoadedState copyWith({
+    List<WordPair>? wordPairs,
+    GameUiState? gameState,
+  }) =>
+      WordPairLoadedState(
+        wordPairs: wordPairs ?? this.wordPairs,
+        gameState: gameState ?? this.gameState,
+      );
 }
 
 final class WordPairErrorState extends WordPairState {
-  final String message;
+  const WordPairErrorState(this.message);
 
-  const WordPairErrorState({required this.message});
+  final String message;
 
   @override
   List<Object?> get props => [message];
